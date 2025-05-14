@@ -1,0 +1,22 @@
+.list-group a {
+    background: linear-gradient(90deg, #BCF7C7, #A7D4EF);
+
+}
+.list-group a:hover{
+    background: linear-gradient(90deg, #58f675,#5abcfa);
+    color: white;
+    cursor: pointer;
+}
+.logo {
+    width: 150px;
+    cursor: pointer;
+ }
+
+ .sidebar{
+    position: fixed;
+    z-index: 5;
+    background: linear-gradient(90deg, #BCF7C7, #A7D4EF);
+ }
+
+
+
