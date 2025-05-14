@@ -1,0 +1,50 @@
+.gradient-bg{
+  background: linear-gradient(90deg, #BCF7C7, #A7D4EF);
+ 
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+  position: relative;
+  padding: 20px;
+  z-index: 1;
+}
+
+.with-sidebar {
+  margin-left: 250px;
+  /* if your sidebar is 250px */
+}
+
+.bg-image-small {
+  background-image: url("./Assets/img/Logopic.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 500px;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  position: absolute;
+  top: 100px;
+  left: -240px;
+  width: 500px;
+  height: 500px;
+  z-index: 0;
+  opacity: 0.8;
+  pointer-events: none;
+  /* Makes sure it's not clickable */
+}
+
+.toggler{
+  cursor: pointer;
+}
