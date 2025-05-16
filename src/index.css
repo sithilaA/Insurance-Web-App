@@ -1,13 +1,62 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  font-family: "Poppins", sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
+:root{
+  /*=== Colors ==== */
+  --body-color:linear-gradient(90deg, #BCF7C7, #A7D4EF);
+  --sidebar-color: #FFF;
+  --primary-color: #04456d;
+  --primary-color-light: #d1eeff;
+  --toggle-color:#DDD;
+  --text-color:#202020;
+  --bg-color-1:#BCF7C7;
+  --bg-color-2: #A7D4EF;
+
+  /*=== Transition ==== */
+  --tran-02: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.4s ease;
+  --tran-05: all 0.5s ease;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  height: 100vh;
+  background: var(--body-color);
+  transition: var(--tran-05);
+}
+
+body.dark{
+    --body-color: #18191A;
+    --sidebar-color: #252526;
+    --primary-color: #3A383C;
+    --primary-color-light: #3A383C;
+    --toggle-color: #FFF;
+    --text-color: #CCC;
+    --bg-color-1: #BCF7C7;
+    --bg-color-2: #A7D4EF;
+}
+
+.bg-image-small {
+  background-image: url("./assets/img/Logopic.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 500px;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  position: absolute;
+  top: 100px;
+  left: -240px;
+  width: 500px;
+  height: 500px;
+  z-index: 0;
+  opacity: 0.8;
+  pointer-events: none;
+  
+  /* Makes sure it's not clickable */
 }
