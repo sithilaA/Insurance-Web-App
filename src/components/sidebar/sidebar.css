@@ -201,7 +201,9 @@ body.dark .menu-bar .mode i.moon {
 .sidebar.close .mode .moon-sun i {
     display: none;
 }
-
+.menu-bar .menu-links{
+    padding-left: 0;
+}
 .menu-bar .mode .toggle-switch {
     position: absolute;
     right: 0;

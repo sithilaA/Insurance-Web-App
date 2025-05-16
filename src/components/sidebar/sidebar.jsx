@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./sidebar.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Logo from "../../assets/img/Logopic.png";
-
+import { Link } from "react-router-dom";
 export default function Sidebar() {
   const [isDark, setIsDark] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -57,10 +57,7 @@ export default function Sidebar() {
             <span className="slogan">Your Life, Our Promise.</span>
           </div>
         </div>
-        <i
-          className="bi bi-caret-right toggle"
-          onClick={toggleSidebar}
-        ></i>
+        <i className="bi bi-caret-right toggle" onClick={toggleSidebar}></i>
       </header>
 
       <div className="menu-bar">
@@ -71,10 +68,10 @@ export default function Sidebar() {
           </li>
           <ul className="menu-links">
             <li className="nav-link">
-              <a href="#">
+              <Link to="/dashboard">
                 <i className="bi bi-speedometer2 icon"></i>
                 <span className="text nav-text">Dashboard</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-link">
               <a href="#">
