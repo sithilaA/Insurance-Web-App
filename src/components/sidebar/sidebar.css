@@ -8,11 +8,13 @@
     background: var(--sidebar-color);
     transition: var(--tran-05);
     z-index: 100;
+    
 }
 
 .sidebar.close {
     width: 88px;
 }
+
 
 .sidebar .text {
     font-size: 16px;
@@ -242,5 +244,10 @@ body.dark .menu-bar .mode i.moon {
 
 body.dark .switch::before {
     left: 25px;
+}
+
+.logo-link{
+    text-decoration: none;
+    cursor: pointer;
 }
 

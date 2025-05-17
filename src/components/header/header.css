@@ -3,3 +3,7 @@
     height: 60px;
     background: var(--primary-color-light);
 }
+
+.top-nav-header .row{
+    margin: 0px !important;
+}

@@ -1,0 +1,15 @@
+.searchBox{
+    width: 400px;
+    height: 40px;
+    background: var(--sidebar-color);
+    border-radius: 6px;
+    padding: 3px 15px;
+}
+
+.searchBox input{
+    background: transparent;
+    border: 0px;
+    outline: none;
+    padding-left: 5px;
+    width: 100%;
+}

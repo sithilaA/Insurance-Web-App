@@ -10,6 +10,27 @@ export default function Sidebar() {
   const sidebarRef = useRef(null); // for sidebar element
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setIsCollapsed(true); // Collapse sidebar on small screens
+      } else {
+        setIsCollapsed(false); // Expand sidebar on large screens
+      }
+    };
+
+    // Initial check on mount
+    handleResize();
+
+    // Add listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     const body = document.querySelector("body");
     if (isDark) {
       body.classList.add("dark");
@@ -49,13 +70,17 @@ export default function Sidebar() {
       <header>
         <div className="image-text">
           <span className="image">
-            <img src={Logo} alt="logo" />
+            <Link to={"/"}>
+              <img src={Logo} alt="logo" />
+            </Link>
           </span>
-          <div className="text header-text">
-            <span className="name">SafeNest Life</span>
-            <br />
-            <span className="slogan">Your Life, Our Promise.</span>
-          </div>
+          <Link className="logo-link" to={"/"}>
+            <div className="text header-text">
+              <span className="name">SafeNest Life</span>
+              <br />
+              <span className="slogan">Your Life, Our Promise.</span>
+            </div>
+          </Link>
         </div>
         <i className="bi bi-caret-right toggle" onClick={toggleSidebar}></i>
       </header>
