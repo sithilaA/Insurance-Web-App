@@ -103,6 +103,7 @@
     color: var(--sidebar-color);
     font-size: 22px;
     transition: var(--tran-03);
+  
 }
 
 .sidebar.close header .toggle {
@@ -115,6 +116,7 @@ body.dark .sidebar header .toggle {
 
 .sidebar .menu{
     margin-top: 35px;
+   
 }
 
 .sidebar .search-box {
@@ -218,6 +220,7 @@ body.dark .menu-bar .mode i.moon {
     border-radius: 6px;
     background: var(--primary-color-light);
     transition: var(--tran-05);
+   
 }
 
 .toggle-switch .switch {
@@ -249,5 +252,6 @@ body.dark .switch::before {
 .logo-link{
     text-decoration: none;
     cursor: pointer;
+   
 }
 

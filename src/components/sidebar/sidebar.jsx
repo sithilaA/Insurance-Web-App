@@ -87,10 +87,10 @@ export default function Sidebar() {
 
       <div className="menu-bar">
         <div className="menu">
-          <li className="search-box" ref={searchRef}>
+          {/* <li className="search-box" ref={searchRef}>
             <i className="bi bi-search icon"></i>
             <input type="text" placeholder="Search..." />
-          </li>
+          </li> */}
           <ul className="menu-links">
             <li className="nav-link">
               <Link to="/dashboard">

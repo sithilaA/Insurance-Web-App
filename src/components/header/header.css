@@ -1,9 +1,74 @@
 .top-nav-header{
     width: 100%;
     height: 60px;
-    background: var(--primary-color-light);
+    background: var(--sidebar-color);
 }
 
 .top-nav-header .row{
     margin: 0px !important;
+    
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text {
+    color: var(--text-color);
+}
+
+.top-nav-header button.rounded-circle{
+    min-width: 40px !important;
+    width: 40px !important;
+    height: 40px;
+    background: var(--primary-color-light) !important;
+    color: var(--text-color);
+    margin-right: 5px;
+}
+
+.top-nav-header button.rounded-circle i{
+    color: var(--text-color);
+   
+}
+.myProfile .userImg{
+    display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--text-color);
+        padding:2px;
+        border-radius: 100%;
+
+}
+.myProfile .userImg .rounded-circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+.myProfile .userImg .rounded-circle img{
+    object-fit:cover;
+    width: 100%;
+    height: 100%;
+}
+
+.myProfile .userInfo{
+    padding-left: 10px;
+}
+
+.myProfile .userInfo h4{
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.myProfile .userInfo p{
+    margin-top: 0px;
+    font-size: 12px;
+    color: var(--text-color);
+    opacity: 0.7;
 }
