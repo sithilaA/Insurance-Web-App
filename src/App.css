@@ -1,0 +1,25 @@
+.page {
+    position: relative;
+    min-height: 100vh;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    /*transition: margin-left var(--tran-05), width var(--tran-05);*/
+    overflow-x: hidden;
+    transition: var(--tran-05);
+}
+
+.page .text {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 8px 40px;
+    transition: var(--tran-05);
+}
+
+/* Adjust layout when sidebar is closed */
+.sidebar.close ~ .page {
+    margin-left: 88px;
+    width: calc(100% - 88px);
+    transition: var(--tran-05);
+}
