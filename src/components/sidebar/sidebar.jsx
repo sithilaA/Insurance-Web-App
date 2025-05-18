@@ -133,7 +133,7 @@ export default function Sidebar() {
 
         <div className="bottom-content">
           <li>
-            <a href="#">
+            <a href="/register">
               <i className="bi bi-power icon"></i>
               <span className="text nav-text">Logout</span>
             </a>
