@@ -1,15 +1,27 @@
+/* Main page layout */
 .page {
     position: relative;
     min-height: 100vh;
     margin-left: 250px;
     width: calc(100% - 250px);
     background: var(--body-color);
-    /*transition: margin-left var(--tran-05), width var(--tran-05);*/
+    overflow-y: scroll;
+    /* Allow vertical scroll */
     overflow-x: hidden;
+    /* Hide horizontal scroll */
+    scrollbar-width: none;
+    /* Firefox - hide scrollbar */
+    -ms-overflow-style: none;
+    /* IE/Edge - hide scrollbar */
     transition: var(--tran-05);
-   
 }
 
+/* Hide scrollbar for WebKit browsers (Chrome, Safari, etc.) */
+.page::-webkit-scrollbar {
+    display: none;
+}
+
+/* Text inside page */
 .page .text {
     font-size: 30px;
     font-weight: 500;
@@ -18,8 +30,8 @@
     transition: var(--tran-05);
 }
 
-/* Adjust layout when sidebar is closed */
-.sidebar.close ~ .page {
+/* When sidebar is closed */
+.sidebar.close~.page {
     margin-left: 88px;
     width: calc(100% - 88px);
     transition: var(--tran-05);

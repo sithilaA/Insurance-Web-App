@@ -1,0 +1,44 @@
+.payment-card {
+    background: var(--card-bg-color);
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: auto;
+    box-shadow: 0 4px 12px var(--box-shadow);
+    font-family: 'Segoe UI', sans-serif;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.header h4 {
+    font-size: 1.5rem;
+    color: var(--text-color) !important;
+}
+
+.dropdown {
+    border: 1px solid var(--toggle-color);
+    border-radius: 12px;
+    padding: 5px 12px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.custom-tooltip {
+    background: var(--sidebar-color) !important;
+    padding: 6px 12px;
+    border-radius: 10px;
+    color: var(--text-color) !important;
+    font-weight: 600;
+    box-shadow: 0 4px 12px var(--box-shadow);
+}
+
+.lineChart{
+    color: var(--text-color) !important;
+}

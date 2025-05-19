@@ -17,7 +17,8 @@
   --text-color:#243A52;
   --bg-color-1:#BCF7C7;
   --bg-color-2: #A7D4EF;
-
+  --card-bg-color:#f5fbfdde;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   /*=== Transition ==== */
   --tran-02: all 0.2s ease;
   --tran-03: all 0.3s ease;
@@ -40,13 +41,13 @@ body.dark{
     --text-color: #CCC;
     --bg-color-1: #BCF7C7;
     --bg-color-2: #A7D4EF;
+    --card-bg-color: #252526de;
+    --box-shadow: 0 10px 30px rgba(239, 239, 239, 0.414);
+    color: #CCC;;
 }
 
+
 .bg-image-small {
-  background-image: url("./assets/img/Logopic.png");
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  background-size: 500px;
   filter: blur(8px);
   -webkit-filter: blur(8px);
   position: absolute;
@@ -57,6 +58,5 @@ body.dark{
   z-index: 0;
   opacity: 0.8;
   pointer-events: none;
-  
   /* Makes sure it's not clickable */
 }

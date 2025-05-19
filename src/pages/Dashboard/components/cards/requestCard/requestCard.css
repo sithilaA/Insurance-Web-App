@@ -1,0 +1,41 @@
+.request-card {
+    border-radius: 20px;
+    background: var(--card-bg-color) !important;
+    border: none;
+    box-shadow: 0 4px 12px var(--box-shadow);
+    max-width: 360px;
+    color: var(--text-color) !important;
+}
+.request-card .text-muted{
+ font-weight: bold;
+}
+.request-card .text-muted, p.text-body{
+    color: var(--text-color) !important;
+}
+
+.file-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 60px;
+    border-radius: 8px;
+    color: var(--sidebar-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem;
+}
+
+.jpg-icon {
+    background-color: #5fc28f;
+}
+
+.pdf-icon {
+    background-color: #e74c3c;
+}
+
+.file-icon i {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}

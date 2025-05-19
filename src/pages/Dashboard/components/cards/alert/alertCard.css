@@ -1,0 +1,65 @@
+.alert-container {
+    background: var(--card-bg-color);
+    border-radius: 20px;
+    padding: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.alert-card {
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: none;
+    background-color: var(--card-bg-color) !important;
+}
+
+.alert-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color) !important;
+}
+
+.alert-text {
+    font-size: 0.95rem;
+    color: var(--text-color) !important;
+    margin-bottom: 0;
+}
+
+.learn-more {
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--text-color) !important;
+    transition: color 0.2s;
+}
+
+.learn-more:hover {
+    color: #0056b3;
+    /* Optional: subtle hover effect */
+    text-decoration: underline;
+}
+
+.close-btn {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--text-color) !important;
+    font-size: 1.2rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.close-btn:hover {
+    background-color: var(--text-color);
+    color: #ff0000 !important;
+    cursor: pointer;
+}

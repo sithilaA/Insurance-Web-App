@@ -1,0 +1,31 @@
+.page-content {
+    z-index: 100;
+    position: relative;
+    /* Ensures z-index applies */
+}
+
+/* Horizontally scrollable row with drag and hidden scrollbar */
+.scroll-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+    cursor: grab;
+
+    /* Hide scrollbar - cross-browser */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer and Edge (legacy) */
+}
+
+.scroll-row:active {
+    cursor: grabbing;
+}
+
+/* Hide scrollbar for WebKit-based browsers */
+.scroll-row::-webkit-scrollbar {
+    display: none;
+}
