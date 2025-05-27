@@ -1,7 +1,15 @@
-import "./App.css";
+// App.jsx
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from "./pages/Login";
 
 function App() {
-  return <div>Welcome to Safe Nest Life</div>;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
