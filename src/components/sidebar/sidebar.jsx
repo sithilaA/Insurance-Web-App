@@ -3,49 +3,37 @@ import "./sidebar.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Logo from "../../assets/img/Logopic.png";
 import { Link } from "react-router-dom";
+
 export default function Sidebar() {
   const [isDark, setIsDark] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const searchRef = useRef(null); // for search box
-  const sidebarRef = useRef(null); // for sidebar element
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const searchRef = useRef(null);
 
+  // Collapse sidebar on small screens
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setIsCollapsed(true); // Collapse sidebar on small screens
-      } else {
-        setIsCollapsed(false); // Expand sidebar on large screens
-      }
+      setIsCollapsed(window.innerWidth <= 768);
     };
-
-    // Initial check on mount
     handleResize();
-
-    // Add listener
     window.addEventListener("resize", handleResize);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Toggle dark mode class on body
   useEffect(() => {
-    const body = document.querySelector("body");
-    if (isDark) {
-      body.classList.add("dark");
-    } else {
-      body.classList.remove("dark");
-    }
+    document.body.classList.toggle("dark", isDark);
   }, [isDark]);
 
+  // Expand sidebar when clicking on search box
   useEffect(() => {
+    const handleSearchClick = () => setIsCollapsed(false);
     const searchBox = searchRef.current;
+
     if (searchBox) {
       searchBox.addEventListener("click", handleSearchClick);
     }
 
-    // Clean up on unmount
     return () => {
       if (searchBox) {
         searchBox.removeEventListener("click", handleSearchClick);
@@ -53,28 +41,35 @@ export default function Sidebar() {
     };
   }, []);
 
-  const handleSearchClick = () => {
-    setIsCollapsed(false); // removes 'close' class
+  const toggleSidebar = () => {
+    setIsCollapsed((prev) => {
+      const newState = !prev;
+      if (newState) {
+        setActiveSubmenu(null); // Close submenu when collapsing
+      }
+      return newState;
+    });
   };
+  
 
   const toggleDarkMode = () => {
     setIsDark((prev) => !prev);
   };
 
-  const toggleSidebar = () => {
-    setIsCollapsed((prev) => !prev);
+  const toggleSubmenu = (menuName) => {
+    setActiveSubmenu((prev) => (prev === menuName ? null : menuName));
   };
 
   return (
-    <nav ref={sidebarRef} className={`sidebar ${isCollapsed ? "close" : ""}`}>
+    <nav className={`sidebar ${isCollapsed ? "close" : ""}`}>
       <header>
         <div className="image-text">
           <span className="image">
-            <Link to={"/"}>
+            <Link to="/">
               <img src={Logo} alt="logo" />
             </Link>
           </span>
-          <Link className="logo-link" to={"/"}>
+          <Link className="logo-link" to="/">
             <div className="text header-text">
               <span className="name">SafeNest Life</span>
               <br />
@@ -87,10 +82,6 @@ export default function Sidebar() {
 
       <div className="menu-bar">
         <div className="menu">
-          {/* <li className="search-box" ref={searchRef}>
-            <i className="bi bi-search icon"></i>
-            <input type="text" placeholder="Search..." />
-          </li> */}
           <ul className="menu-links">
             <li className="nav-link">
               <Link to="/dashboard">
@@ -98,34 +89,62 @@ export default function Sidebar() {
                 <span className="text nav-text">Dashboard</span>
               </Link>
             </li>
+
+            <li
+              className={`nav-link has-submenu ${
+                activeSubmenu === "products" ? "open" : ""
+              }`}
+            >
+              <div
+                className="submenu-toggle"
+                onClick={() => toggleSubmenu("products")}
+              >
+                <i className="bi bi-boxes icon"></i>
+                <span className="text nav-text">Products</span>
+                {!isCollapsed && (
+                  <i className="bi bi-chevron-down submenu-arrow"></i>
+                )}
+              </div>
+
+              <ul
+                className={`submenu ${
+                  activeSubmenu === "products" ? "show" : ""
+                }`}
+              >
+                <li className="submenuItem">
+                  <Link to="/products/insurance">Insurance</Link>
+                </li>
+                <li className="submenuItem">
+                  <Link to="/products/wellness">Wellness Plans</Link>
+                </li>
+                <li className="submenuItem">
+                  <Link to="/products/financial">Financial Services</Link>
+                </li>
+              </ul>
+            </li>
+
             <li className="nav-link">
               <a href="#">
-                <i className="bi bi-bar-chart-line icon"></i>
-                <span className="text nav-text">Revenue</span>
+                <i className="bi bi-heart-pulse icon"></i>
+                <span className="text nav-text">Health & Wellness</span>
               </a>
             </li>
             <li className="nav-link">
               <a href="#">
-                <i className="bi bi-bell icon"></i>
-                <span className="text nav-text">Notifications</span>
+                <i className="bi bi-person-raised-hand icon"></i>
+                <span className="text nav-text">Help and Support</span>
               </a>
             </li>
             <li className="nav-link">
               <a href="#">
-                <i className="bi bi-pie-chart icon"></i>
-                <span className="text nav-text">Analytics</span>
+                <i className="bi bi-buildings icon"></i>
+                <span className="text nav-text">About Us</span>
               </a>
             </li>
             <li className="nav-link">
               <a href="#">
-                <i className="bi bi-heart icon"></i>
-                <span className="text nav-text">Likes</span>
-              </a>
-            </li>
-            <li className="nav-link">
-              <a href="#">
-                <i className="bi bi-wallet icon"></i>
-                <span className="text nav-text">Wallets</span>
+                <i className="bi bi-pin-map icon"></i>
+                <span className="text nav-text">Contact Us</span>
               </a>
             </li>
           </ul>
@@ -138,7 +157,6 @@ export default function Sidebar() {
               <span className="text nav-text">Logout</span>
             </a>
           </li>
-
           <li className="mode">
             <div className="moon-sun">
               <i className="bi bi-moon icon moon"></i>
@@ -147,7 +165,6 @@ export default function Sidebar() {
             <span className="mode-text text">
               {isDark ? "Light Mode" : "Dark Mode"}
             </span>
-
             <div className="toggle-switch" onClick={toggleDarkMode}>
               <span className="switch"></span>
             </div>
