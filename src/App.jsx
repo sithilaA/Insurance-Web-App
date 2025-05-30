@@ -8,6 +8,7 @@ import Verification from './pages/verfication';
 import Register from './pages/auth/Register';
 import ProfilePage from './pages/profile/ProfilePage'
 import EditProfilePage from './pages/profile/EditProfile'
+import PurchaseForm from "./pages/subscription/PurchaseForm";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -24,6 +25,7 @@ function Layout() {
           <Route path="/kyc" element={<Verification />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/edit-profile" element={<EditProfilePage />} />
+          <Route path="/purchase-form" element={<PurchaseForm />} />
         </Routes>
       </section>
     </div>
